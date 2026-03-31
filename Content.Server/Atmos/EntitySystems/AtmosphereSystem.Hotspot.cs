@@ -152,23 +152,29 @@ namespace Content.Server.Atmos.EntitySystems
             {
                 if (soh)
                 {
-                    if (plasma > 0.5f || tritium > 0.5f)
+                    if (plasma > 0.5f || tritium > 0.5f || puddleFlammability > 0)
                     {
-                        if (tile.Hotspot.Temperature < exposedTemperature)
-                            tile.Hotspot.Temperature = exposedTemperature;
-                        if (tile.Hotspot.Volume < exposedVolume)
-                            tile.Hotspot.Volume = exposedVolume;
-                    }
-					else if (puddleFlammability > 0)
-                    {
-                        if (tile.Hotspot.Temperature < exposedTemperature)
-                            tile.Hotspot.Temperature = exposedTemperature / 3.0f;
-                        if (tile.Hotspot.Volume < exposedVolume)
-                            tile.Hotspot.Volume = exposedVolume / 3.0f;
+						if (tile.Hotspot.Type == HotspotType.Puddle)
+						{
+							if (tile.Hotspot.Temperature < exposedTemperature)
+								tile.Hotspot.Temperature = exposedTemperature;
+							if (tile.Hotspot.Volume < exposedVolume)
+								tile.Hotspot.Volume = exposedVolume;
+						}
+						else
+						{
+							if (tile.Hotspot.Temperature < exposedTemperature)
+								tile.Hotspot.Temperature = exposedTemperature / 3.0f;
+							if (tile.Hotspot.Volume < exposedVolume)
+								tile.Hotspot.Volume = exposedVolume / 3.0f;
+						}
                     }
                 }
-                tile.Hotspot.Temperature = AddClampedTemperature(tile.Hotspot.Temperature, 1 * puddleFlammability / 30.0f, (float)(Atmospherics.T0C + 20 * Math.Pow(puddleFlammability / 30.0f, 1.2)));
-
+				if (tile.Hotspot.Type == HotspotType.Puddle)
+					tile.Hotspot.Temperature = AddClampedTemperature(tile.Hotspot.Temperature, 1 * puddleFlammability / 30.0f, (float)(Atmospherics.T0C + 20 * Math.Pow(puddleFlammability / 30.0f, 1.2)));
+				else
+				tile.Hotspot.Temperature = AddClampedTemperature(tile.Hotspot.Temperature, 1 * puddleFlammability, (float)(Atmospherics.T0C + 20 * Math.Pow(puddleFlammability, 1.2)));
+					
                 return;
             }
 
@@ -179,8 +185,16 @@ namespace Content.Server.Atmos.EntitySystems
                     _adminLog.Add(LogType.Flammable, LogImpact.High, $"Heat/spark of {ToPrettyString(sparkSourceUid.Value)} caused atmos ignition of gas: {tile.Air.Temperature.ToString():temperature}K - {oxygen}mol Oxygen, {plasma}mol Plasma, {tritium}mol Tritium");
 
                 var temperature = exposedTemperature;
-                if(puddleFlammability > 0)
-                    temperature = AddClampedTemperature(temperature, 1 * puddleFlammability / 30.0f, (float)(Atmospherics.T0C + 20 * Math.Pow(puddleFlammability / 30.0f, 1.2)));
+				if (tile.Hotspot.Type == HotspotType.Puddle)
+				{
+					if(puddleFlammability > 0)
+						temperature = AddClampedTemperature(temperature, 1 * puddleFlammability / 30.0f, (float)(Atmospherics.T0C + 20 * Math.Pow(puddleFlammability / 30.0f, 1.2)));
+				}
+				else
+				{
+					if(puddleFlammability > 0)
+						temperature = AddClampedTemperature(temperature, 1 * puddleFlammability, (float)(Atmospherics.T0C + 20 * Math.Pow(puddleFlammability, 1.2)));
+				}
                 tile.Hotspot = new Hotspot
                 {
                     Volume = exposedVolume * 25f,

@@ -184,8 +184,9 @@
   suffix: Big
   components:
   - type: Item
+    size: Huge
     shape:
-    - 0,0,1,1
+    - 0,0,3,3
   - type: BallisticAmmoProvider
     capacity: 280 # 8 mags per box similar to rifle box
     proto: Cartridge45_ACPFMJ

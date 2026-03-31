@@ -1,0 +1,38 @@
+# Author Info
+# GitHub: dunetemplar
+# Discord: dunetemplar
+
+- type: vessel
+  id: Prospect
+  parent: BaseVessel
+  name: DTC Prospect
+  description: A well-equipped salvage vessel with a decently spacious cargo bay, 3 M25 mining pulsars, 2 AK570 autocannons, and a complementary Breacher slotted into the pilot seat.
+  price: 78000
+  category: small
+  group: Shipyard
+  shuttlePath: /Maps/_FinalFrontier/Shuttles/prospect.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Prospect
+  mapName: 'DTC Prospect'
+  mapPath: /Maps/_FinalFrontier/Shuttles/prospect.yml
+  minPlayers: 0
+  stations:
+    Prospect:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Prospect CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

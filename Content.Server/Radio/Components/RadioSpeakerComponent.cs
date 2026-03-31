@@ -25,6 +25,20 @@ public sealed partial class RadioSpeakerComponent : Component
 
     [DataField("enabled")]
     public bool Enabled;
+	
+	// Goob start
+    /// <summary>
+    /// speaks normally when true whispers when false
+    /// </summary>
+    [DataField]
+    public bool SpeakNormally;
+
+    /// <summary>
+    /// Does the radio need to be on a power grid to work?
+    /// </summary>
+    [DataField]
+    public bool PowerRequired;
+    // Goob end
 
     //Frontier: radio output volume
     /// <summary>

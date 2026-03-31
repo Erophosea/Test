@@ -14,7 +14,7 @@
     weight: 5
     duration: 1800 # 30 minutes
     maxDuration: 1800 # 30 minutes
-    reoccurrenceDelay: 120 # 2 hours (some variety - at worst, alternates between four dungeon types)
+    reoccurrenceDelay: 240 # Final Frontier - Doubled this.
   - type: ActiveRadio
     channels:
     - Supply
@@ -37,14 +37,15 @@
         - type: IFF
         - type: LinkedLifecycleGridParent
         # Mono - make it movable
+        # Final Frontier - Fix this decision.
         #- type: ProtectedGrid
         #  preventArtifactTriggers: true
-        #- type: PreventPilot
+        - type: PreventPilot
         ## FIXME: the dungeon dosen't pass FTL events even though it should FTL in
         ##        and we don't get a MapInitEvent, so this just forces static physics
-        #- type: Physics
-        #  bodyType: Static
-        #  bodyStatus: OnGround
+        - type: Physics
+          bodyType: Static
+          bodyStatus: OnGround
         - type: ClaimableGrid # Mono
         protos:
         - NFVGRoidBasalt

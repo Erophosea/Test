@@ -271,7 +271,7 @@ public sealed partial class GunSystem : SharedGunSystem
         {
             if (throwItems)
             {
-                Recoil(user, direction, gun.CameraRecoilScalarModified * 3);
+                Recoil(user, direction, gun.CameraRecoilScalarModified * 1.1f);
                 if (IsClientSide(ent!.Value))
                     Del(ent.Value);
                 else
@@ -287,7 +287,7 @@ public sealed partial class GunSystem : SharedGunSystem
                         SetCartridgeSpent(ent!.Value, cartridge, true);
                         MuzzleFlash(gunUid, cartridge, worldAngle, user);
                         Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
-                        Recoil(user, direction, gun.CameraRecoilScalarModified * 3);
+                        Recoil(user, direction, gun.CameraRecoilScalarModified * 1.1f);
                         // TODO: Can't predict entity deletions.
                         //if (cartridge.DeleteOnSpawn)
                         //    Del(cartridge.Owner);
@@ -305,7 +305,7 @@ public sealed partial class GunSystem : SharedGunSystem
                 case AmmoComponent newAmmo:
                     MuzzleFlash(gunUid, newAmmo, worldAngle, user);
                     Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
-                    Recoil(user, direction, gun.CameraRecoilScalarModified * 3);
+                    Recoil(user, direction, gun.CameraRecoilScalarModified * 1.1f);
                     if (IsClientSide(ent!.Value))
                         Del(ent.Value);
                     else
@@ -313,7 +313,7 @@ public sealed partial class GunSystem : SharedGunSystem
                     break;
                 case HitscanAmmoComponent:
                     Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
-                    Recoil(user, direction, gun.CameraRecoilScalarModified * 3);
+                    Recoil(user, direction, gun.CameraRecoilScalarModified * 1.1f);
                     break;
             }
         }
@@ -324,7 +324,7 @@ public sealed partial class GunSystem : SharedGunSystem
         if (!Timing.IsFirstTimePredicted || user == null || recoil == Vector2.Zero || recoilScalar == 0)
             return;
 
-        _recoil.KickCamera(user.Value, recoil.Normalized() * 1.5f * recoilScalar);
+        _recoil.KickCamera(user.Value, recoil.Normalized() * 1.25f * recoilScalar);
     }
 
     protected override void Popup(string message, EntityUid? uid, EntityUid? user)

@@ -102,6 +102,10 @@
         {
             "name": "xeno-chair",
             "directions": 4
-        }
+        },
+        {
+      	    "name": "gun-1",
+            "directions": 4
+    	}
     ]
 }

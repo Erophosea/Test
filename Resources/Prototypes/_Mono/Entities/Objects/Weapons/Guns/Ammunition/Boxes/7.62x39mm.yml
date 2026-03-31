@@ -191,6 +191,8 @@
   components:
   - type: Item
     size: Huge
+    shape:
+    - 0,0,3,3
   - type: BallisticAmmoProvider
     capacity: 210 # 7 rifle mags
     proto: Cartridge762x39mmFMJ

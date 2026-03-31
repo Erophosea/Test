@@ -381,10 +381,10 @@ namespace Content.Server.Light.EntitySystems
 		
 		public override void Update(float frameTime)
         {
-			if (RobustRandom.Prob(0.25f))
+			if (RobustRandom.Prob(0.2f))
 			{
 				float randRad = RobustRandom.NextFloat(0.95f,1.05f);
-				float randNrg = RobustRandom.NextFloat(0.975f,1.05f);
+				float randNrg = RobustRandom.NextFloat(0.675f,0.75f);
 				var query = EntityQueryEnumerator<PoweredLightComponent, PointLightComponent>();
 				while (query.MoveNext(out var uid, out _, out _))
 				{

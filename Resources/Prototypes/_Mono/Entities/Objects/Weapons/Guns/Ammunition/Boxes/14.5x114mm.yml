@@ -57,6 +57,8 @@
   components:
   - type: Item
     size: Huge
+    shape:
+    - 0,0,3,3
   - type: BallisticAmmoProvider
     capacity: 30
     proto: Cartridge145x114mm

@@ -1,0 +1,31 @@
+# Author Info
+# GitHub: dunetemplar
+# Discord: dunetemplar
+
+- type: pointOfInterest
+  id: RadioStation
+  parent: BasePOI
+  name: "Broadcasting Station"
+  minimumDistance: 6200
+  maximumDistance: 8200
+  spawnGroup: Required
+  gridPath: /Maps/_FinalFrontier/POI/radio.yml
+  addComponents:
+  - type: SolarPoweredGrid
+    trackOnInit: true
+    doNotCull: true
+
+- type: gameMap
+  id: RadioStation
+  mapName: "Broadcasting Station"
+  mapPath: /Maps/_FinalFrontier/POI/radio.yml
+  minPlayers: 0
+  stations:
+    RadioStation:
+      stationProto: DeadDropFrontierOutpost
+      gridComponents:
+      - type: VesselInfo
+        description: "Call out into the abyss, and pray that nothing responds."
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "Broadcasting Station"

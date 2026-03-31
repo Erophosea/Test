@@ -17,6 +17,9 @@
     whitelist:
       components:
       - Body
+    blacklist:
+      tags:
+      - Astrum
     canTargetSelf: false
     interactOnMiss: false
     itemIconStyle: NoItem

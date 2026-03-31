@@ -23,5 +23,8 @@ public sealed class RMCCVars : CVars
 
     public static readonly CVarDef<float> RMCGunPredictionAabbEnlargement =
         CVarDef.Create("rmc.gun_prediction_aabb_enlargement", 0.3f, CVar.SERVER | CVar.REPLICATED);
+	
+	public static readonly CVarDef<float> VolumeGainCassettes =
+        CVarDef.Create("rmc.volume_gain_cassettes", 0.33f, CVar.REPLICATED | CVar.CLIENT | CVar.ARCHIVE);
 }
 

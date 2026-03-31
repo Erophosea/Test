@@ -1,0 +1,225 @@
+- type: entity
+  abstract: true
+  id: BaseVinylDisk
+  name: vinyl disk
+  description: A vinyl disk containing music.
+  parent: BaseItem
+  components:
+  - type: Vinyl
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/RadioStation/vinyls.rsi
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 12
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          VinylDiskBroken:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: DamageOnLand
+    ignoreResistances: true
+    damage:
+      types:
+        Blunt: 5
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 5
+  - type: Tag
+    tags:
+    - VinylSleeveFit
+
+- type: entity
+  abstract: true
+  id: BaseVinylSleeve
+  name: vinyl sleeve
+  description: A vinyl sleeve, perfect for storing your vinyls.
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/RadioStation/vinylsleeves.rsi
+  - type: ContainerContainer
+    containers:
+      vinyl: !type:ContainerSlot
+        showEnts: false
+        occludes: true
+        ent: null
+  - type: ItemSlots
+    slots:
+      vinyl:
+        name: vinyl
+        insertSound: /Audio/_Goobstation/RadioStation/vinyl/vinylEject.ogg
+        ejectSound: /Audio/_Goobstation/RadioStation/vinyl/vinylInsert.ogg
+        whitelist:
+          tags:
+          - VinylSleeveFit
+
+# Vinyls
+
+- type: entity
+  name: "vinyl disk: space jazz"
+  id: VinylDiskSpaceJazz
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: blue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/SpaceJazz.ogg
+
+- type: entity
+  name: "vinyl disk: airport lounge"
+  id: VinylDiskAirportLounge
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: blue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/AirportLounge.ogg
+
+- type: entity
+  name: "vinyl disk: vibing over venus"
+  id: VinylDiskVibingOverVenus
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: blue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/VibingOverVenus.ogg
+
+- type: entity
+  name: "vinyl disk: late night radio"
+  id: VinylDiskLateNightRadio
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: blue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/LateNightRadio.ogg
+      
+# FINAL FRONTIER START
+- type: entity
+  name: "vinyl disk: distant lights battle"
+  id: VinylDiskDistantLights
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: blue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_FinalFrontier/RadioStation/music/distant_lights.ogg
+      
+- type: entity
+  name: "vinyl disk: seperatist battle"
+  id: VinylDiskAirportSeperatist
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: blue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_FinalFrontier/RadioStation/music/seperatist.ogg
+      
+- type: entity
+  name: "vinyl disk: corporate battle"
+  id: VinylDiskCorporate
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: blue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_FinalFrontier/RadioStation/music/corporate.ogg
+
+- type: entity
+  name: "vinyl disk: federal battle"
+  id: VinylDiskFederal
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: blue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_FinalFrontier/RadioStation/music/federal.ogg
+      
+- type: entity
+  name: "vinyl disk: crystal battle"
+  id: VinylDiskCrystal
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: blue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_FinalFrontier/RadioStation/music/crystal.ogg
+
+- type: entity
+  name: "vinyl disk: merchant's remorse"
+  id: VinylDiskMerchantsRemose
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: blue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_FinalFrontier/RadioStation/music/merchants_remorse.ogg
+      
+- type: entity
+  name: "vinyl disk: auto battle"
+  id: VinylDiskAuto
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: blue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_FinalFrontier/RadioStation/music/auto.ogg
+      
+- type: entity
+  name: "vinyl disk: shell battle"
+  id: VinylDiskShell
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: blue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_FinalFrontier/RadioStation/music/shell.ogg
+      
+- type: entity
+  name: "vinyl disk: hektar battle"
+  id: VinylDiskHektar
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: blue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_FinalFrontier/RadioStation/music/hektar.ogg
+
+
+# Sleeves
+
+- type: entity
+  name: white vinyl sleeve
+  id: VinylSleeveWhite
+  parent: BaseVinylSleeve
+  components:
+  - type: Sprite
+    state: plainwhite-vinyl-sleeve

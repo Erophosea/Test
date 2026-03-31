@@ -31,6 +31,7 @@
     ComputerWithdrawBankATMFlatpack: 4294967295 # Infinite
     TelevisionFlatpack: 4294967295 # Infinite
     MassMediaFlatpack: 4294967295 # Infinite - Mono
+    RadioFlatpack: 4294967295 # Infinite
     JukeboxFlatpack: 4294967295 # Infinite - Mono
     AtmosDeviceFanDirectionalFlatpack: 4294967295 # Infinite - Mono
     MaterialSiloFlatpack: 4294967295 # Infinite - Mono
