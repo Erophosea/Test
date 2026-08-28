@@ -113,7 +113,7 @@
   form: Antagonist
   name: USSP
   color: "#B01340"
-  disabled: false # Mercs are now USSP-pilled.
+  disabled: true # No longer needed due to nations
   description: ussp-description
 
 # Major companies

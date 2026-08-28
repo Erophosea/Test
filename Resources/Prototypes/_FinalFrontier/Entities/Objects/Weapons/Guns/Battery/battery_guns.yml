@@ -101,31 +101,31 @@
     id: StandardFactionLongarm
     
 - type: entity
-  name: laser musket
+  name: RCM LM3 laser rifle
   parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponLaserMusket
-  description: A modified laser rifle with the ability to manually charge individual shots to increase damage.
+  description: An odd laser weapon made by the Royal Commonwealth of Man, with the ability to charge its individual shots for more damage at the cost of energy drain.
   components:
   - type: Battery
     maxCharge: 500
     startingCharge: 500
   - type: Sprite
-    sprite: _FinalFrontier/Objects/Weapons/Guns/Battery/laser_rifle.rsi/icon.rsi
+    sprite: _FinalFrontier/Objects/Weapons/Guns/Battery/laser_musket.rsi/icon.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
-    - state: mag-unshaded-4
+    - state: mag-unshaded-3
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Item
-    sprite: _FinalFrontier/Objects/Weapons/Guns/Battery/laser_rifle.rsi
+    sprite: _FinalFrontier/Objects/Weapons/Guns/Battery/laser_musket.rsi
   - type: MagazineVisuals
     magState: mag
     steps: 5
     zeroVisible: false
   - type: Appearance
   - type: Clothing
-    sprite: _FinalFrontier/Objects/Weapons/Guns/Battery/laser_rifle.rsi
+    sprite: _FinalFrontier/Objects/Weapons/Guns/Battery/laser_musket.rsi
     quickEquip: false
     slots:
     - Back
